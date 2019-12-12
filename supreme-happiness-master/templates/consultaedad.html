@@ -13,9 +13,10 @@
         </div>
 
     </div>
-    <span> En la base existen {{filas | length}} clientes entre la edad indicada</span>
+    
     {% if filas %}
     <table class="table table-striped table-bordered" >
+        <span> En la base existen {{filas | length}} clientes entre la edad indicada</span>
         <tr>
             {% for titulo in titulos %}
             <th scope="col">{{titulo}}</th>
