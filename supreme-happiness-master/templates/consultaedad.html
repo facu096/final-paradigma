@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Consultas por edad{% endblock %}
+
+{% block page_content %}
+<div style="width: 100%; margin-left: 0%;">
+    <h1 style="margin-left: 10%;">Buscador</h1>
+    <h3 style="margin-left: 10%;">Clientes por edad</h3>
+    <hr>
+    <div style="height: 50%; width: 50%; margin-left: 25%; margin-top: 5%; padding: 1%;">
+        <div class="form-group">
+            {{ wtf.quick_form(formulario) }}
+        </div>
+
+    </div>
+    <span> En la base existen {{filas | length}} clientes entre la edad indicada</span>
+    {% if filas %}
+    <table class="table table-striped table-bordered" >
+        <tr>
+            {% for titulo in titulos %}
+            <th scope="col">{{titulo}}</th>
+            {% endfor %}
+        </tr>
+        {% for fila in filas %}
+        <tr>
+            {% for celdas in fila %}
+            <td scope="row">{{celdas}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

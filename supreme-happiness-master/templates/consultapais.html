@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Consultas por país{% endblock %}
+
+{% block page_content %}
+<div style="width: 80%; margin-left: 10%;">
+    <h1 style="margin-left: 10%;">Buscador</h1>
+    <h3 style="margin-left: 10%;">Clientes por país</h3>
+    <hr>
+    <div style="height: 50%; width: 50%; margin-left: 25%; margin-top: 5%; padding: 1%;">
+        <div class="form-group">
+            {{ wtf.quick_form(formulario) }}
+        </div>
+    </div>
+    {% if submit %}
+        {% if paises %}
+            <ul style="margin-left: 25%;">
+            {% for pais in paises %}
+                <li> <a href="/consultafinal/pais/{{pais}}">{{pais}}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h5 style="margin-left: 26%; color: red;">No se encontraron resultados.</h5>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

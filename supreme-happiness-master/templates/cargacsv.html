@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block page_content %}
+
+<html lang="en">
+<head>
+
+<style>
+table, th, td {
+    border: 2px solid gainsboro;
+    padding: 5px;
+}
+table {
+    border-spacing: 15px;
+}
+</style>
+  
+    <h1>Clientes</h1>
+    <hr>
+    <span> En la base existen {{filas | length}} clientes</span>
+    <table class="table table-striped table-bordered">
+        <tr>
+            {% for titulo in titulos %}
+            <th scope="col">{{titulo}}</th>
+            {% endfor %}
+        </tr>
+        {% for fila in filas %}
+        <tr>
+            {% for celdas in fila %}
+            <td scope="row">{{celdas}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
